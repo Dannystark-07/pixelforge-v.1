@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixelforge Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar left-panel">
+        <div class="brand-row">
+          <div class="brand-badge">P</div>
+          <div>
+            <p class="mini-label">Design Studio</p>
+            <h1>Pixelforge</h1>
+          </div>
+        </div>
+
+        <div class="tool-group">
+          <button class="tool-btn active" data-tool="select" type="button">Select</button>
+          <button class="tool-btn" data-tool="text" type="button">Text</button>
+          <button class="tool-btn" data-tool="rectangle" type="button">Rectangle</button>
+          <button class="tool-btn" data-tool="ellipse" type="button">Ellipse</button>
+          <button class="tool-btn" data-tool="triangle" type="button">Triangle</button>
+          <button class="tool-btn" data-tool="image" type="button">Image</button>
+        </div>
+
+        <div class="upload-box">
+          <label for="imageUpload" class="file-label">Upload image</label>
+          <input id="imageUpload" type="file" accept="image/*" />
+        </div>
+
+        <div class="mini-panel">
+          <p class="mini-label">Quick colors</p>
+          <div class="color-palette">
+            <button type="button" class="swatch active" data-color="#8b5cf6" style="background:#8b5cf6"></button>
+            <button type="button" class="swatch" data-color="#ec4899" style="background:#ec4899"></button>
+            <button type="button" class="swatch" data-color="#f97316" style="background:#f97316"></button>
+            <button type="button" class="swatch" data-color="#22c55e" style="background:#22c55e"></button>
+            <button type="button" class="swatch" data-color="#0ea5e9" style="background:#0ea5e9"></button>
+            <button type="button" class="swatch" data-color="#111827" style="background:#111827"></button>
+          </div>
+        </div>
+
+        <div class="library-panel">
+          <div class="library-header">
+            <p class="mini-label">Template library</p>
+            <span id="templateCount">0</span>
+          </div>
+          <div id="templateLibrary" class="template-library"></div>
+        </div>
+
+        <div class="library-panel">
+          <div class="library-header">
+            <p class="mini-label">Filter library</p>
+            <span id="filterCount">0</span>
+          </div>
+          <input id="filterSearch" class="search-box" type="text" placeholder="Search filters" />
+          <div id="filterLibrary" class="filter-library"></div>
+        </div>
+      </aside>
+
+      <main class="workspace-panel">
+        <header class="topbar">
+          <div>
+            <p class="mini-label">Creative workspace</p>
+            <h2>New Design</h2>
+          </div>
+
+          <div class="actions">
+            <button id="newProjectBtn" class="ghost-btn" type="button">New</button>
+            <button id="undoBtn" class="ghost-btn" type="button">Undo</button>
+            <button id="redoBtn" class="ghost-btn" type="button">Redo</button>
+            <button id="duplicateBtn" class="ghost-btn" type="button">Duplicate</button>
+            <button id="deleteBtn" class="danger-btn" type="button">Delete</button>
+            <button id="downloadBtn" class="primary-btn" type="button">Export PNG</button>
+          </div>
+        </header>
+
+        <div class="toolbar-ribbon">
+          <div class="ribbon-group">
+            <label>Fill</label>
+            <input id="fillColor" type="color" value="#8b5cf6" />
+          </div>
+          <div class="ribbon-group">
+            <label>Stroke</label>
+            <input id="strokeColor" type="color" value="#111827" />
+          </div>
+          <div class="ribbon-group">
+            <label>Background</label>
+            <input id="canvasBackground" type="color" value="#fff6f1" />
+          </div>
+          <div class="ribbon-group">
+            <button id="alignLeftBtn" type="button">Align Left</button>
+            <button id="alignCenterBtn" type="button">Center</button>
+            <button id="alignRightBtn" type="button">Align Right</button>
+          </div>
+          <div class="ribbon-group">
+            <button id="bringFrontBtn" type="button">Bring Front</button>
+            <button id="sendBackBtn" type="button">Send Back</button>
+          </div>
+        </div>
+
+        <div class="stage-wrap">
+          <div class="stage-header">
+            <span>Canvas</span>
+            <div class="stage-tools">
+              <button id="zoomOutBtn" type="button">-</button>
+              <strong id="zoomLabel">100%</strong>
+              <button id="zoomInBtn" type="button">+</button>
+            </div>
+          </div>
+
+          <div class="stage-area">
+            <div id="designCanvas" class="design-canvas" aria-label="Design canvas"></div>
+          </div>
+        </div>
+      </main>
+
+      <aside class="sidebar right-panel">
+        <div class="panel-block">
+          <p class="mini-label">Properties</p>
+          <div id="propertyPanel" class="property-panel">
+            <p class="empty-state">Select an object to edit</p>
+          </div>
+        </div>
+
+        <div class="panel-block">
+          <p class="mini-label">Layers</p>
+          <div id="layerList" class="layer-list"></div>
+        </div>
+      </aside>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

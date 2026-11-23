@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PixelForge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="toolbar">
+        <div class="brand-block">
+          <div class="brand-mark">P</div>
+          <div>
+            <p class="eyebrow">Creative tool</p>
+            <h1>PixelForge</h1>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="field-label" for="colorPicker">Brush color</label>
+          <input id="colorPicker" type="color" value="#7c3aed" />
+        </div>
+
+        <div class="control-group">
+          <label class="field-label">Tool</label>
+          <div class="tool-buttons">
+            <button class="tool-button active" data-tool="paint" type="button">Paint</button>
+            <button class="tool-button" data-tool="erase" type="button">Eraser</button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="field-label" for="gridSize">Grid size</label>
+          <input id="gridSize" type="range" min="8" max="32" value="16" />
+          <div class="value-row">
+            <span>Small</span>
+            <strong id="gridValue">16 x 16</strong>
+            <span>Large</span>
+          </div>
+        </div>
+
+        <div class="button-stack">
+          <button id="clearCanvas" class="primary-button" type="button">Clear canvas</button>
+          <button id="saveImage" class="secondary-button" type="button">Save PNG</button>
+        </div>
+      </aside>
+
+      <main class="canvas-panel">
+        <div class="canvas-header">
+          <div>
+            <p class="eyebrow">Pixel editor</p>
+            <h2>Build your sprite</h2>
+          </div>
+          <div class="status-pill" id="statusText">Ready</div>
+        </div>
+
+        <div class="canvas-wrap">
+          <div id="pixelCanvas" class="pixel-canvas" aria-label="Pixel art canvas"></div>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
